@@ -19,7 +19,6 @@
         <button class="btn btn-primary" (click)="addCourse()" [disabled]="isAddingCourse">Add Course</button>
     </div>
 
-    <!-- Add/Edit Course Form -->
     <div *ngIf="isAddingCourse" class="add-course-form card slide-in">
         <h3>{{ isEditing ? "Edit Course" : "Add New Course" }}</h3>
 
