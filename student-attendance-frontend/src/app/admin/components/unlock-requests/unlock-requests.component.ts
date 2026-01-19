@@ -31,6 +31,7 @@ export interface UnlockRequest {
     DatePipe,
   ],
 })
+
 export class UnlockRequestsComponent implements OnInit {
   requests: UnlockRequest[] = [];
   filteredRequests: UnlockRequest[] = [];
