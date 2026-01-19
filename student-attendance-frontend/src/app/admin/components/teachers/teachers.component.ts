@@ -50,7 +50,7 @@ export class TeachersComponent implements OnInit {
 
   constructor(
     private adminService: AdminService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
   ) {
     this.teacherForm = this.formBuilder.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
@@ -88,7 +88,7 @@ export class TeachersComponent implements OnInit {
       (t) =>
         t.name.toLowerCase().includes(search) ||
         t.email.toLowerCase().includes(search) ||
-        (t.teacherId?.toLowerCase() || '').includes(search)
+        (t.teacherId?.toLowerCase() || '').includes(search),
     );
   }
 
@@ -150,7 +150,7 @@ export class TeachersComponent implements OnInit {
         .subscribe({
           next: (updatedTeacher) => {
             const index = this.teachers.findIndex(
-              (t) => t.id === updatedTeacher.id
+              (t) => t.id === updatedTeacher.id,
             );
             if (index !== -1) this.teachers[index] = updatedTeacher;
             this.filteredTeachers = this.teachers;
@@ -194,7 +194,7 @@ export class TeachersComponent implements OnInit {
 
   private removeTeacherFromList() {
     this.teachers = this.teachers.filter(
-      (t) => t.id !== this.teacherToDelete!.id
+      (t) => t.id !== this.teacherToDelete!.id,
     );
     this.filteredTeachers = this.teachers;
     this.teacherToDelete = null;
