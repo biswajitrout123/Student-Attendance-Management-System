@@ -54,8 +54,6 @@ export class StudentDashboardComponent implements OnInit {
     this.isLoading = true;
     this.errorMessage = '';
 
-    // Pass the selected filters to the service
-    // On first load, these are 'All', so backend will use student's current class
     this.studentService
       .getStudentDashboard(this.selectedYear, this.selectedSemester)
       .subscribe({
@@ -124,14 +122,14 @@ export class StudentDashboardComponent implements OnInit {
   getCoursesAbove(threshold: number): number {
     if (!this.dashboardData?.courseAttendances) return 0;
     return this.dashboardData.courseAttendances.filter(
-      (c) => c.percentage >= threshold
+      (c) => c.percentage >= threshold,
     ).length;
   }
 
   getCoursesBelow(threshold: number): number {
     if (!this.dashboardData?.courseAttendances) return 0;
     return this.dashboardData.courseAttendances.filter(
-      (c) => c.percentage < threshold
+      (c) => c.percentage < threshold,
     ).length;
   }
 }
