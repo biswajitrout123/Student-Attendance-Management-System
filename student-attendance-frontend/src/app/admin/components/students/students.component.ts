@@ -69,7 +69,10 @@ export class StudentsComponent implements OnInit {
   showConfirmation = false;
   studentToDelete: Student | null = null;
 
-  constructor(private fb: FormBuilder, private adminService: AdminService) {
+  constructor(
+    private fb: FormBuilder,
+    private adminService: AdminService,
+  ) {
     this.studentForm = this.fb.group({
       name: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
@@ -159,7 +162,7 @@ export class StudentsComponent implements OnInit {
       (s) =>
         s.name.toLowerCase().includes(term) ||
         s.email.toLowerCase().includes(term) ||
-        s.rollNumber.toLowerCase().includes(term)
+        s.rollNumber.toLowerCase().includes(term),
     );
   }
 
