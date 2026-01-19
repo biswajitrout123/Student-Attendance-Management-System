@@ -54,7 +54,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.pollSubscription = interval(5000)
       .pipe(
         startWith(0), // Trigger immediately (don't wait 5s for the first load)
-        switchMap(() => this.adminService.getAdminDashboard()) // Switch to the API call
+        switchMap(() => this.adminService.getAdminDashboard()), // Switch to the API call
       )
       .subscribe({
         next: (data) => {
