@@ -122,7 +122,6 @@
 
     </div>
 
-    <!-- Confirmation Dialog -->
     <app-confirmation-dialog [show]="showConfirmation" title="Delete Teacher"
         [message]="'Are you sure you want to delete ' + (teacherToDelete?.name || 'this teacher') + '?'"
         confirmText="Delete" cancelText="Cancel" type="danger" (confirmed)="onDeleteConfirmed()"
