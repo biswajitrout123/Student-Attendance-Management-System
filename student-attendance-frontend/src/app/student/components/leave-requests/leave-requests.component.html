@@ -127,7 +127,6 @@
         </div>
     </div>
 
-    <!-- Confirmation Dialog -->
     <app-confirmation-dialog [show]="showConfirmation" title="Delete Leave Request"
         [message]="'Are you sure you want to delete this request?'" confirmText="Delete" cancelText="Cancel"
         type="danger" (confirmed)="onDeleteConfirmed()" (cancelled)="onDeleteCancelled()">
