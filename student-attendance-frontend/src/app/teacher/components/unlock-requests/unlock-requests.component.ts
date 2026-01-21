@@ -22,7 +22,7 @@ export class UnlockRequestsComponent implements OnInit {
     this.isLoading = true;
     this.teacherService.getUnlockRequests().subscribe({
       next: (data) => {
-        console.log('Unlock Requests:', data); // Debugging
+        console.log('Unlock Requests:', data);
         this.requests = data;
         this.isLoading = false;
       },

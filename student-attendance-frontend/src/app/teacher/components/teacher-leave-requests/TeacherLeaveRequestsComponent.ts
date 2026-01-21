@@ -18,7 +18,7 @@ interface TeacherLeaveRequest {
   type: string;
   status: 'PENDING' | 'APPROVED' | 'REJECTED';
   requestedAt: string;
-  processedAt?: string; // Optional field for history
+  processedAt?: string; 
 }
 
 @Component({

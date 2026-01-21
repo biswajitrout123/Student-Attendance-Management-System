@@ -129,14 +129,14 @@ export class StudyMaterialsComponent implements OnInit {
     // Apply course filter
     if (this.selectedCourse !== 'All') {
       filtered = filtered.filter(
-        (material) => material.course === this.selectedCourse
+        (material) => material.course === this.selectedCourse,
       );
     }
 
     // Apply type filter
     if (this.selectedType !== 'All') {
       filtered = filtered.filter(
-        (material) => material.type === this.selectedType
+        (material) => material.type === this.selectedType,
       );
     }
 
@@ -152,7 +152,7 @@ export class StudyMaterialsComponent implements OnInit {
             .includes(this.searchTerm.toLowerCase()) ||
           material.description
             .toLowerCase()
-            .includes(this.searchTerm.toLowerCase())
+            .includes(this.searchTerm.toLowerCase()),
       );
     }
 

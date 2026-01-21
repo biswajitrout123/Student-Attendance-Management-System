@@ -22,7 +22,10 @@ export class DashboardComponent implements OnInit {
   pendingRequests = 0;
   attendanceMarkedToday = 0;
 
-  constructor(private teacherService: TeacherService, private router: Router) {
+  constructor(
+    private teacherService: TeacherService,
+    private router: Router,
+  ) {
     this.setGreeting();
   }
 
@@ -66,7 +69,7 @@ export class DashboardComponent implements OnInit {
     courseId: number,
     startTime: string,
     status: string,
-    isMarked: boolean | undefined
+    isMarked: boolean | undefined,
   ) {
     const today = this.getLocalDateString();
 
@@ -94,7 +97,7 @@ export class DashboardComponent implements OnInit {
       alert('Class has not started yet.');
     } else if (status === 'NotAllowed') {
       alert(
-        '⚠️ Request period expired. Requests are only allowed within 2 days.'
+        '⚠️ Request period expired. Requests are only allowed within 2 days.',
       );
     }
   }

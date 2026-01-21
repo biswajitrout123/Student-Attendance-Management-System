@@ -25,7 +25,10 @@ export class EditAttendanceComponent implements OnInit {
   isLoading: boolean = false;
   isSubmitting: boolean = false;
 
-  constructor(private teacherService: TeacherService, private router: Router) {}
+  constructor(
+    private teacherService: TeacherService,
+    private router: Router,
+  ) {}
 
   ngOnInit() {
     this.calculateDateLimits();

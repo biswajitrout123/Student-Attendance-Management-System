@@ -44,7 +44,7 @@ export class MarkAttendanceComponent implements OnInit {
     private teacherService: TeacherService,
     private fb: FormBuilder,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
   ) {
     this.attendanceForm = this.fb.group({ attendanceList: this.fb.array([]) });
   }
@@ -87,7 +87,7 @@ export class MarkAttendanceComponent implements OnInit {
       .checkAttendanceRules(
         this.selectedCourseId!,
         this.attendanceDate,
-        this.isUpdateMode
+        this.isUpdateMode,
       )
       .subscribe({
         next: (allowed) => {
@@ -153,7 +153,7 @@ export class MarkAttendanceComponent implements OnInit {
           studentName: [s.studentName],
           rollNumber: [s.rollNumber],
           status: [s.status || 'PRESENT', Validators.required],
-        })
+        }),
       );
     });
     this.calculateStats();
