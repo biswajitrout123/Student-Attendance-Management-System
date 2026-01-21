@@ -10,7 +10,10 @@ import { AuthService } from './auth.service';
 export class StudentService {
   private apiUrl = `${environment.apiUrl}/student`;
 
-  constructor(private http: HttpClient, private authService: AuthService) {}
+  constructor(
+    private http: HttpClient,
+    private authService: AuthService,
+  ) {}
 
   private getHeaders() {
     return { headers: this.authService.getAuthHeaders() };
@@ -33,7 +36,7 @@ export class StudentService {
   getStudentAttendance(
     courseId?: number,
     startDate?: string,
-    endDate?: string
+    endDate?: string,
   ): Observable<any[]> {
     let params = new HttpParams();
     if (courseId) params = params.set('courseId', courseId);

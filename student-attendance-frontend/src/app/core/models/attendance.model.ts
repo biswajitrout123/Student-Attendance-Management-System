@@ -27,4 +27,3 @@ export interface AttendanceDetailResponse {
   courseCode: string;
   remarks?: string;
 }
-

@@ -20,7 +20,10 @@ export class AdminService {
   // ✅ Ensure this matches the backend controller path
   private apiUrl = `${environment.apiUrl}/admin`;
 
-  constructor(private http: HttpClient, private authService: AuthService) {}
+  constructor(
+    private http: HttpClient,
+    private authService: AuthService,
+  ) {}
 
   private getHeaders() {
     return { headers: this.authService.getAuthHeaders() };
@@ -30,7 +33,7 @@ export class AdminService {
   getAdminDashboard(): Observable<DashboardResponse> {
     return this.http.get<DashboardResponse>(
       `${this.apiUrl}/dashboard`,
-      this.getHeaders()
+      this.getHeaders(),
     );
   }
 
@@ -39,32 +42,32 @@ export class AdminService {
     return this.http.post<UserInfoResponse>(
       `${this.apiUrl}/teachers`,
       teacherData,
-      this.getHeaders()
+      this.getHeaders(),
     );
   }
 
   getAllTeachers(): Observable<UserInfoResponse[]> {
     return this.http.get<UserInfoResponse[]>(
       `${this.apiUrl}/teachers`,
-      this.getHeaders()
+      this.getHeaders(),
     );
   }
 
   getTeacherById(teacherId: number): Observable<UserInfoResponse> {
     return this.http.get<UserInfoResponse>(
       `${this.apiUrl}/teachers/${teacherId}`,
-      this.getHeaders()
+      this.getHeaders(),
     );
   }
 
   updateTeacher(
     teacherId: number,
-    teacherData: SignupRequest
+    teacherData: SignupRequest,
   ): Observable<UserInfoResponse> {
     return this.http.put<UserInfoResponse>(
       `${this.apiUrl}/teachers/${teacherId}`,
       teacherData,
-      this.getHeaders()
+      this.getHeaders(),
     );
   }
 
@@ -80,14 +83,14 @@ export class AdminService {
     return this.http.post<StudentApiResponse>(
       `${this.apiUrl}/students`,
       studentData,
-      this.getHeaders()
+      this.getHeaders(),
     );
   }
 
   getAllStudents(): Observable<StudentApiResponse[]> {
     return this.http.get<StudentApiResponse[]>(
       `${this.apiUrl}/students`,
-      this.getHeaders()
+      this.getHeaders(),
     );
   }
 
@@ -95,18 +98,18 @@ export class AdminService {
   getStudentById(studentId: number): Observable<StudentApiResponse> {
     return this.http.get<StudentApiResponse>(
       `${this.apiUrl}/students/${studentId}`,
-      this.getHeaders()
+      this.getHeaders(),
     );
   }
 
   updateStudent(
     studentId: number,
-    studentData: UpdateStudentRequest
+    studentData: UpdateStudentRequest,
   ): Observable<StudentApiResponse> {
     return this.http.put<StudentApiResponse>(
       `${this.apiUrl}/students/${studentId}`,
       studentData,
-      this.getHeaders()
+      this.getHeaders(),
     );
   }
 
@@ -126,7 +129,7 @@ export class AdminService {
     return this.http.post<any>(
       `${this.apiUrl}/classes`,
       classData,
-      this.getHeaders()
+      this.getHeaders(),
     );
   }
 
@@ -134,7 +137,7 @@ export class AdminService {
     return this.http.put<any>(
       `${this.apiUrl}/classes/${classId}`,
       classData,
-      this.getHeaders()
+      this.getHeaders(),
     );
   }
 
@@ -155,7 +158,7 @@ export class AdminService {
     return this.http.post<any>(
       `${this.apiUrl}/courses`,
       courseData,
-      this.getHeaders()
+      this.getHeaders(),
     );
   }
 
@@ -163,7 +166,7 @@ export class AdminService {
     return this.http.put<any>(
       `${this.apiUrl}/courses/${courseId}`,
       courseData,
-      this.getHeaders()
+      this.getHeaders(),
     );
   }
 
@@ -180,7 +183,7 @@ export class AdminService {
   getAllUnlockRequests(): Observable<any[]> {
     return this.http.get<any[]>(
       `${this.apiUrl}/unlock-requests`,
-      this.getHeaders()
+      this.getHeaders(),
     );
   }
 
@@ -188,7 +191,7 @@ export class AdminService {
   getUnlockStats(): Observable<any> {
     return this.http.get<any>(
       `${this.apiUrl}/unlock-requests/stats`,
-      this.getHeaders()
+      this.getHeaders(),
     );
   }
 
@@ -196,7 +199,7 @@ export class AdminService {
     return this.http.post<any>(
       `${this.apiUrl}/unlock-requests/${requestId}/process?approve=${approve}`,
       {},
-      this.getHeaders()
+      this.getHeaders(),
     );
   }
 
@@ -204,7 +207,7 @@ export class AdminService {
   getAttendanceReports(): Observable<any[]> {
     return this.http.get<any[]>(
       `${this.apiUrl}/attendance-reports`,
-      this.getHeaders()
+      this.getHeaders(),
     );
   }
 }

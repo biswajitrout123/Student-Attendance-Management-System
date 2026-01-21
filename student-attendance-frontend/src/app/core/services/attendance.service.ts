@@ -11,7 +11,10 @@ import { AttendanceResponse } from '../models/attendance.model';
 export class AttendanceService {
   private apiUrl = `${environment.apiUrl}/attendance`;
 
-  constructor(private http: HttpClient, private authService: AuthService) {}
+  constructor(
+    private http: HttpClient,
+    private authService: AuthService,
+  ) {}
 
   private getHeaders() {
     return { headers: this.authService.getAuthHeaders() };
@@ -19,21 +22,21 @@ export class AttendanceService {
 
   getAttendanceByStudentAndCourse(
     studentId: number,
-    courseId: number
+    courseId: number,
   ): Observable<AttendanceResponse[]> {
     return this.http.get<AttendanceResponse[]>(
       `${this.apiUrl}/student/${studentId}/course/${courseId}`,
-      this.getHeaders()
+      this.getHeaders(),
     );
   }
 
   getAttendanceByCourseAndDate(
     courseId: number,
-    date: string
+    date: string,
   ): Observable<AttendanceResponse[]> {
     return this.http.get<AttendanceResponse[]>(
       `${this.apiUrl}/course/${courseId}/date/${date}`,
-      this.getHeaders()
+      this.getHeaders(),
     );
   }
 }

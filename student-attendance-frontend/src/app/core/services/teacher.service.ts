@@ -10,7 +10,10 @@ import { AuthService } from '../../core/services/auth.service';
 export class TeacherService {
   private apiUrl = `${environment.apiUrl}/teacher`;
 
-  constructor(private http: HttpClient, private authService: AuthService) {}
+  constructor(
+    private http: HttpClient,
+    private authService: AuthService,
+  ) {}
 
   private getHeaders() {
     return { headers: this.authService.getAuthHeaders() };
@@ -29,7 +32,7 @@ export class TeacherService {
   getStudentsByCourse(courseId: number): Observable<any[]> {
     return this.http.get<any[]>(
       `${this.apiUrl}/courses/${courseId}/students`,
-      this.getHeaders()
+      this.getHeaders(),
     );
   }
 
@@ -38,14 +41,14 @@ export class TeacherService {
   getClassAttendance(courseId: number, date: string): Observable<any[]> {
     return this.http.get<any[]>(
       `${this.apiUrl}/courses/${courseId}/attendance?date=${date}`,
-      this.getHeaders()
+      this.getHeaders(),
     );
   }
 
   checkAttendanceRules(
     courseId: number,
     date: string,
-    isEdit: boolean
+    isEdit: boolean,
   ): Observable<boolean> {
     const params = new HttpParams()
       .set('courseId', courseId)
@@ -77,14 +80,14 @@ export class TeacherService {
     return this.http.post(
       `${this.apiUrl}/unlock-requests`,
       payload,
-      this.getHeaders()
+      this.getHeaders(),
     );
   }
 
   getUnlockRequests(): Observable<any[]> {
     return this.http.get<any[]>(
       `${this.apiUrl}/unlock-requests`,
-      this.getHeaders()
+      this.getHeaders(),
     );
   }
 
@@ -93,7 +96,7 @@ export class TeacherService {
   getPendingLeaveRequests(): Observable<any[]> {
     return this.http.get<any[]>(
       `${this.apiUrl}/leave-requests/pending`,
-      this.getHeaders()
+      this.getHeaders(),
     );
   }
 
@@ -101,7 +104,7 @@ export class TeacherService {
   getProcessedLeaveRequests(): Observable<any[]> {
     return this.http.get<any[]>(
       `${this.apiUrl}/leave-requests/history`,
-      this.getHeaders()
+      this.getHeaders(),
     );
   }
 
@@ -110,9 +113,7 @@ export class TeacherService {
     return this.http.post<any>(
       `${this.apiUrl}/leave-requests/${requestId}/process`,
       {},
-      { ...this.getHeaders(), params }
+      { ...this.getHeaders(), params },
     );
   }
 }
-
-

@@ -25,13 +25,13 @@ export class AuthService {
 
   constructor(
     private http: HttpClient,
-    private storageService: StorageService
+    private storageService: StorageService,
   ) {
     // 3. --- INITIALIZE THE SUBJECT ---
     // On app start, get the user from local storage
     const storedUser = this.storageService.getUser();
     this.currentUserSubject = new BehaviorSubject<UserInfoResponse | null>(
-      storedUser
+      storedUser,
     );
     this.currentUser = this.currentUserSubject.asObservable();
   }
@@ -62,14 +62,14 @@ export class AuthService {
 
           // Notify all subscribers (like the sidebar) that the user has changed
           this.currentUserSubject.next(user);
-        })
+        }),
       );
   }
 
   register(signupRequest: SignupRequest): Observable<UserInfoResponse> {
     return this.http.post<UserInfoResponse>(
       `${this.apiUrl}/register`,
-      signupRequest
+      signupRequest,
     );
   }
 

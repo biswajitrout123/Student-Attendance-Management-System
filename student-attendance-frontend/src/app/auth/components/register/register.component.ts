@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit {
     private formBuilder: FormBuilder,
     private authService: AuthService,
     private router: Router,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
   ) {}
 
   ngOnInit(): void {
@@ -119,7 +119,7 @@ export class RegisterComponent implements OnInit {
             {
               duration: 5000,
               panelClass: ['success-snackbar'],
-            }
+            },
           );
           this.router.navigate(['/auth/login']);
         },
@@ -128,7 +128,7 @@ export class RegisterComponent implements OnInit {
           this.snackBar.open(
             error.error?.message || 'Registration failed. Please try again.',
             'Close',
-            { duration: 5000, panelClass: ['error-snackbar'] }
+            { duration: 5000, panelClass: ['error-snackbar'] },
           );
         },
       });
